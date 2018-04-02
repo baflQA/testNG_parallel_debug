@@ -1,0 +1,9 @@
+target/*
+*.iml
+**/.idea
+**/TEMP/*
+*.user.*
+*.orig
+ignored.json
+allure-results/
+/artifacts/screenshots/

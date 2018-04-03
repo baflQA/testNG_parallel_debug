@@ -15,6 +15,7 @@ public class Class4 extends MasterTestClass {
 
 	@BeforeMethod
 	public void refresh() {
+		Class4.logger.warn("Before method");
 	}
 
 	@Test(dataProviderClass = Provider1.class, dataProvider = "dp3")

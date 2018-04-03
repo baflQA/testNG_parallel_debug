@@ -18,6 +18,8 @@ public class Class10 extends MasterTestClass {
 
 	@BeforeClass
 	public void createData() throws Exception {
+		Class10.logger.warn("Before class");
+
 		this.executorService.submit(() -> {
 			try {
 				Class10.logger.warn("First Thread");

@@ -1,4 +1,4 @@
-package test.java.testngparallel.package2;
+package testngparallel.package2;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

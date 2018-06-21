@@ -1,11 +1,11 @@
-package test.java.testngparallel.providers;
+package testngparallel.providers;
 
 import org.testng.annotations.DataProvider;
 
 public class Provider2 extends MasterProvider {
 
 	@DataProvider(name = "dp1")
-	public Object[][] getEmmeObjects() {
+	public Object[][] getObjects() {
 		return new Object[][]{new Object[]
 				{Object.class, new Object(), new Object()},
 				{Object.class, new Object(), new Object()},
@@ -28,6 +28,4 @@ public class Provider2 extends MasterProvider {
 						new Object(), new Object()},
 		};
 	}
-
-
 }

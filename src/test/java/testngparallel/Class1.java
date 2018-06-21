@@ -1,14 +1,14 @@
-package test.java.testngparallel;
+package testngparallel;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
-import test.java.testngparallel.providers.MasterProvider;
+import testngparallel.providers.MasterProvider;
 
 import java.lang.invoke.MethodHandles;
 
-public class Class1 extends MasterTestClass {
+public class Class1 extends test.java.testngparallel.MasterTestClass {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@BeforeMethod

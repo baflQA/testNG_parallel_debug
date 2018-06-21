@@ -1,4 +1,4 @@
-package test.java.testngparallel.providers;
+package testngparallel.providers;
 
 import org.testng.annotations.DataProvider;
 

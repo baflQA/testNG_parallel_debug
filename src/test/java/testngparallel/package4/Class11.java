@@ -1,4 +1,4 @@
-package test.java.testngparallel.package4;
+package testngparallel.package4;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,16 +16,16 @@ public class Class11 extends MasterTestClass {
 
 	@BeforeMethod
 	public void refresh() {
-		Class11.logger.warn("Before Method");
+		logger.warn("Before Method");
 	}
 
 	@Test(dataProviderClass = Provider2.class, dataProvider = "dp2")
 	public <T extends Object> void test1(Class<T> clazz, Object object, Object object2, Object object3, Object object4, Method method) {
-		Class11.logger.warn(clazz.getSimpleName() + "test 1");
+		logger.warn(clazz.getSimpleName() + "test 1");
 	}
 
 	@Test(dataProviderClass = MasterProvider.class, dataProvider = "dp2master")
 	public <T extends Object> void test2(Class<T> clazz, Method method) {
-		Class11.logger.warn(clazz.getSimpleName() + "test 2");
+		logger.warn(clazz.getSimpleName() + "test 2");
 	}
 }

@@ -11,17 +11,20 @@ import testngparallel.providers.Provider1;
 import java.lang.invoke.MethodHandles;
 import java.lang.reflect.Method;
 
+import static org.testng.Assert.fail;
+
 public class Class2 extends MasterTestClass {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@BeforeMethod
 	public void refresh() {
-		logger.warn("{} Before method", this.getClass().getSimpleName());
+		logger.warn("{} CONFIG Before method", this.getClass().getSimpleName());
 	}
 
 	@Test(dataProviderClass = Provider1.class, dataProvider = "dp3")
 	public <T extends Object> void test1(Class<T> clazz, Object remarks, Method method) {
 		logger.warn("{} {}", this.getClass().getSimpleName(), method.getName());
+		fail(); //Here the test fails.
 	}
 
 	@Test(dataProviderClass = Provider1.class, dataProvider = "dp2")
@@ -32,11 +35,10 @@ public class Class2 extends MasterTestClass {
 	@Test(dataProviderClass = Provider1.class, dataProvider = "dp3")
 	public <T extends Object> void test3(Class<T> clazz, Object remarks, Method method) {
 		logger.warn("{} {}", this.getClass().getSimpleName(), method.getName());
-
 	}
 
 	@AfterMethod
 	public void afterMethods() {
-		logger.warn("{} ConfiAfter method", this.getClass().getSimpleName() );
+		logger.warn("{} CONFIG After method", this.getClass().getSimpleName() );
 	}
 }

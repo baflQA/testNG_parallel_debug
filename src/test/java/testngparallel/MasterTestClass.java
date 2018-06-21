@@ -44,7 +44,7 @@ public class MasterTestClass implements ITestListener {
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		MasterTestClass.logger.warn("On Test Failure");
+		MasterTestClass.logger.warn("MASTER CLASS On Test Failure");
 	}
 
 	@Override
@@ -59,11 +59,11 @@ public class MasterTestClass implements ITestListener {
 
 	@Override
 	public void onStart(ITestContext context) {
-		MasterTestClass.logger.warn("On start");
+		MasterTestClass.logger.warn("MASTER CLASS On start");
 	}
 
 	@Override
 	public void onFinish(ITestContext context) {
-		MasterTestClass.logger.warn("On finish");
+		MasterTestClass.logger.warn("MASTER CLASS On finish");
 	}
 }

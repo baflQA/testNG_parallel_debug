@@ -7,7 +7,7 @@ import org.testng.SkipException;
 
 public class FailFastListener implements IInvokedMethodListener {
 	private static final String FAIL_FAST = System.getProperty("failFast");
-	private static final Boolean IS_FAIL_FAST = Boolean.parseBoolean(FAIL_FAST);
+	private static final Boolean IS_FAIL_FAST = true;
 	private static boolean hasFailures = false;
 
 	@Override

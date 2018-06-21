@@ -3,22 +3,22 @@
 <suite name="All Test Suite">
     <test verbose="2" name="dependant" parallel="classes" thread-count="4">
         <classes>
-            <class name="test.java.testngparallel.package2.Class6"/>
-            <class name="test.java.testngparallel.package2.Class7"/>
-            <class name="test.java.testngparallel.package2.Class8"/>
-            <class name="test.java.testngparallel.package2.Class9"/>
+            <class name="testngparallel.package2.Class6"/>
+            <class name="testngparallel.package2.Class7"/>
+            <class name="testngparallel.package2.Class8"/>
+            <class name="testngparallel.package2.Class9"/>
         </classes>
     </test>
     <test verbose="2" name="independent" parallel="classes" thread-count="4">
         <classes>
-            <class name="test.java.testngparallel.Class1"/>
-            <class name="test.java.testngparallel.package1.Class2"/>
-            <class name="test.java.testngparallel.package1.Class3"/>
-            <class name="test.java.testngparallel.package1.Class4"/>
-            <class name="test.java.testngparallel.package1.Class5"/>
-            <class name="test.java.testngparallel.package3.Class10"/>
-            <class name="test.java.testngparallel.package4.Class11"/>
-            <class name="test.java.testngparallel.package4.Class12"/>
+            <class name="testngparallel.Class1"/>
+            <class name="testngparallel.package1.Class2"/>
+            <class name="testngparallel.package1.Class3"/>
+            <class name="testngparallel.package1.Class4"/>
+            <class name="testngparallel.package1.Class5"/>
+            <class name="testngparallel.package3.Class10"/>
+            <class name="testngparallel.package4.Class11"/>
+            <class name="testngparallel.package4.Class12"/>
         </classes>
     </test>
 </suite>

@@ -14,10 +14,10 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <jackson-databind.version>2.9.4</jackson-databind.version>
         <jboss.version>3.0.16.Final</jboss.version>
-        <selenium.version>3.11.0</selenium.version>
+        <selenium.version>3.12.0</selenium.version>
         <slf4j.version>1.7.25</slf4j.version>
-        <testng.version>6.14.2</testng.version>
-        <webdrivermanager.version>2.2.0</webdrivermanager.version>
+        <testng.version>6.14.3</testng.version>
+        <webdrivermanager.version>2.2.2</webdrivermanager.version>
     </properties>
 
     <dependencies>

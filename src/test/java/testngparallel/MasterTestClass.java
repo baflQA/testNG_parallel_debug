@@ -9,26 +9,27 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import testngparallel.listeners.FailFastListener;
 
 import java.lang.invoke.MethodHandles;
 
-@Listeners({MasterTestClass.class})
+@Listeners({MasterTestClass.class, FailFastListener.class})
 public class MasterTestClass implements ITestListener {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@BeforeClass(alwaysRun = true)
 	public void setUp() {
-		MasterTestClass.logger.warn("Before class");
+		MasterTestClass.logger.warn("MASTER CLASS Before class");
 	}
 
 	@BeforeMethod
 	public void navigate() {
-		MasterTestClass.logger.warn("Before method");
+		MasterTestClass.logger.warn("MASTER CLASS Before method");
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
-		MasterTestClass.logger.warn("After class");
+		MasterTestClass.logger.warn("MASTER CLASS After class");
 	}
 
 	@Override

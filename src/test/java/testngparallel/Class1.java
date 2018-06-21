@@ -8,7 +8,7 @@ import testngparallel.providers.MasterProvider;
 
 import java.lang.invoke.MethodHandles;
 
-public class Class1 extends test.java.testngparallel.MasterTestClass {
+public class Class1 extends MasterTestClass {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@BeforeMethod

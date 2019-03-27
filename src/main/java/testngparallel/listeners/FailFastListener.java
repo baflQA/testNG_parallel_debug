@@ -26,6 +26,7 @@ public class FailFastListener implements IInvokedMethodListener, IConfigurationL
 			return;
 		}
 		if ((!hasFailures) && !testResult.isSuccess()) {
+		if (method.isTestMethod() && !hasFailures && !testResult.isSuccess()) {
 			hasFailures = true;
 		}
 	}

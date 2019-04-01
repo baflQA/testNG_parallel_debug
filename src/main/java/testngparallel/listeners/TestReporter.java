@@ -17,75 +17,72 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class TestReporter implements IReporter {
 
-  private static final Logger logger = LoggerFactory
-      .getLogger(MethodHandles.lookup().lookupClass());
+	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
+	private static TestReporter INSTANCE;
+	private Map<Keys, Set<ITestResult>> data = new ConcurrentHashMap<>();
 
-  private static TestReporter INSTANCE;
-  public enum Keys {
-    PASSED_TESTS,
-    FAILED_TESTS,
-    SKIPPED_TESTS,
-    PASSED_CONFIGS,
-    FAILED_CONFIGS,
-    SKIPPED_CONFIGS
-  }
+	public TestReporter() {
+		setInstance(this);
+	}
 
-  private Map<Keys, Set<ITestResult>>  data = new ConcurrentHashMap<>();
+	public static TestReporter getInstance() {
+		return INSTANCE;
+	}
 
-  public TestReporter() {
-    setInstance(this);
-  }
+	private static void setInstance(TestReporter instance) {
+		INSTANCE = instance;
+	}
 
-  public Map<Keys, Set<ITestResult>> getData() {
-    return data;
-  }
+	public Map<Keys, Set<ITestResult>> getData() {
+		return data;
+	}
 
-  private static void setInstance(TestReporter instance) {
-    INSTANCE = instance;
-  }
+	@Override
+	public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites, String outputDirectory) {
+		logger.info("PRINTING TEST RESULTS");
+		suites.forEach(this::generateReport);
+	}
 
-  public static TestReporter getInstance() {
-    return INSTANCE;
-  }
+	private void generateReport(ISuite suite) {
+		suite.getResults().values().forEach(this::generateReport);
+	}
 
-  @Override
-  public void generateReport(List<XmlSuite> xmlSuites, List<ISuite> suites,
-      String outputDirectory) {
-    logger.info("PRINTING TEST RESULTS");
-    suites.forEach(this::generateReport);
+	private void generateReport(ISuiteResult suiteResult) {
+		String msg = "List of passed tests.";
+		generateReport(suiteResult.getTestContext().getPassedTests().getAllResults(), msg, Keys.PASSED_TESTS);
+		msg = "List of failed tests.";
+		generateReport(suiteResult.getTestContext().getFailedTests().getAllResults(), msg, Keys.FAILED_TESTS);
+		msg = "List of skipped tests.";
+		generateReport(suiteResult.getTestContext().getSkippedTests().getAllResults(), msg, Keys.SKIPPED_TESTS);
+		msg = "List of passed configurations.";
+		generateReport(suiteResult.getTestContext().getPassedConfigurations().getAllResults(), msg,
+				Keys.PASSED_CONFIGS);
+		msg = "List of failed configurations.";
+		generateReport(suiteResult.getTestContext().getFailedConfigurations().getAllResults(), msg,
+				Keys.FAILED_CONFIGS);
+		msg = "List of skipped configurations.";
+		generateReport(suiteResult.getTestContext().getSkippedConfigurations().getAllResults(), msg,
+				Keys.SKIPPED_CONFIGS);
+	}
 
-  }
+	private void generateReport(Set<ITestResult> results, String title, Keys key) {
+		if (results.isEmpty()) {
+			logger.info("Skipping print of [{}] because nothing is present.", title);
+			data.put(key, new HashSet<>());
+			return;
+		}
+		logger.info("{} [{}]", title, results.size());
+		results.forEach(result -> logger.info("{}.{}()", result.getMethod().getTestClass().getName(),
+				result.getMethod().getMethodName()));
+		data.put(key, results);
+	}
 
-  private void generateReport(ISuite suite) {
-    suite.getResults().values().forEach(this::generateReport);
-  }
-
-  private void generateReport(ISuiteResult suiteResult) {
-    String msg = "List of passed tests.";
-    generateReport(suiteResult.getTestContext().getPassedTests().getAllResults(), msg, Keys.PASSED_TESTS);
-    msg = "List of failed tests.";
-    generateReport(suiteResult.getTestContext().getFailedTests().getAllResults(), msg, Keys.FAILED_TESTS);
-    msg = "List of skipped tests.";
-    generateReport(suiteResult.getTestContext().getSkippedTests().getAllResults(), msg, Keys.SKIPPED_TESTS);
-    msg = "List of passed configurations.";
-    generateReport(suiteResult.getTestContext().getPassedConfigurations().getAllResults(), msg, Keys.PASSED_CONFIGS);
-    msg = "List of failed configurations.";
-    generateReport(suiteResult.getTestContext().getFailedConfigurations().getAllResults(), msg, Keys.FAILED_CONFIGS);
-    msg = "List of skipped configurations.";
-    generateReport(suiteResult.getTestContext().getSkippedConfigurations().getAllResults(), msg, Keys.SKIPPED_CONFIGS);
-
-  }
-
-  private void generateReport(Set<ITestResult> results, String title, Keys key) {
-    if (results.isEmpty()) {
-      logger.info("Skipping print of [{}] because nothing is present.", title);
-      data.put(key, new HashSet<>());
-      return;
-    }
-    logger.info(title + " [" + results.size() + ']');
-    results.forEach(result -> logger.info("{}.{}()", result.getMethod().getTestClass().getName(),
-        result.getMethod().getMethodName()));
-    data.put(key, results);
-
-  }
+	public enum Keys {
+		PASSED_TESTS,
+		FAILED_TESTS,
+		SKIPPED_TESTS,
+		PASSED_CONFIGS,
+		FAILED_CONFIGS,
+		SKIPPED_CONFIGS
+	}
 }

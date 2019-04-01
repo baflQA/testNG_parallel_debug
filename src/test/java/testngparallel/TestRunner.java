@@ -1,7 +1,5 @@
 package testngparallel;
 
-import java.util.Map;
-import java.util.Set;
 import org.testng.Assert;
 import org.testng.ITestResult;
 import org.testng.TestNG;
@@ -9,6 +7,9 @@ import org.testng.annotations.Test;
 import testngparallel.listeners.TestReporter;
 import testngparallel.listeners.TestReporter.Keys;
 import testngparallel.package1.KMClass;
+
+import java.util.Map;
+import java.util.Set;
 
 public class TestRunner {
 
@@ -27,5 +28,4 @@ public class TestRunner {
     Assert.assertEquals(data.get(Keys.FAILED_CONFIGS).size(), 0);
     Assert.assertEquals(data.get(Keys.SKIPPED_CONFIGS).size(), 5);
   }
-
 }

@@ -10,10 +10,9 @@ public class FailFastListener implements IInvokedMethodListener, IConfigurationL
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	private static boolean hasFailures = false;
 
-
 	@Override
 	public synchronized void afterInvocation(IInvokedMethod method, ITestResult testResult) {
-		System.out.println("AFTER INVOCATION");
+		logger.info("AFTER INVOCATION");
 		if (method.isTestMethod() && !hasFailures && !testResult.isSuccess()) {
 			hasFailures = true;
 		}
@@ -21,11 +20,11 @@ public class FailFastListener implements IInvokedMethodListener, IConfigurationL
 
 	@Override
 	public void beforeConfiguration(ITestResult testResult) {
-		System.out.println("BEFORE CONFIGURATION");
+		logger.info("BEFORE CONFIGURATION");
 	}
 
 	@Override
 	public void beforeDataProviderExecution(IDataProviderMethod dataProviderMethod, ITestNGMethod method, ITestContext iTestContext) {
-		System.out.println("BEFORE DATA PROVIDER");
+		logger.info("BEFORE DATA PROVIDER");
 	}
 }

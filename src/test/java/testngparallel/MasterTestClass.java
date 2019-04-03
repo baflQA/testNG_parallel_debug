@@ -11,8 +11,7 @@ import testngparallel.listeners.FailFastListener;
 import testngparallel.listeners.TestReporter;
 
 import java.lang.invoke.MethodHandles;
-
-@Listeners({MasterTestClass.class, TestReporter.class})
+@Listeners({MasterTestClass.class, TestReporter.class, FailureDetector.class})
 public class MasterTestClass implements ITestListener, ISuiteListener {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 

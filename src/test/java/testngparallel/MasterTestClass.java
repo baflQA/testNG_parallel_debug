@@ -7,7 +7,8 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
-import testngparallel.listeners.FailFastListener;
+import testngparallel.listeners.FailureDetector;
+import testngparallel.listeners.TestListenerImpl;
 import testngparallel.listeners.TestReporter;
 
 import java.lang.invoke.MethodHandles;
@@ -18,7 +19,7 @@ public class MasterTestClass implements ITestListener, ISuiteListener {
 	@Override
 	public void onStart(ISuite suite) {
 		logger.warn("MASTER CLASS On start");
-		suite.addListener(new FailFastListener());
+		suite.addListener(new TestListenerImpl());
 	}
 
 	@BeforeClass(alwaysRun = true)

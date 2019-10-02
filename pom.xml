@@ -12,8 +12,10 @@
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler>3.8.0</maven.compiler>
+        <maven-jar>3.1.0</maven-jar>
         <slf4j.version>1.7.25</slf4j.version>
-        <testng.version>7.0.0-beta5</testng.version>
+        <testng.version>7.0.0</testng.version>
     </properties>
 
     <dependencies>
@@ -33,7 +35,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.7.0</version>
+                <version>${maven.compiler}</version>
                 <configuration>
                     <source>${maven.compiler.source}</source>
                     <target>${maven.compiler.target}</target>
@@ -42,7 +44,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <version>3.0.2</version>
+                <version>${maven-jar}</version>
             </plugin>
         </plugins>
     </build>

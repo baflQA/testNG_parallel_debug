@@ -12,5 +12,6 @@ class TestRunner {
         final TestNG testng = new TestNG();
         testng.setXmlSuites(new Parser(new FileInputStream("src/main/resources/testng-fail.xml")).parseToList());
         testng.run();
+        System.exit(testng.getStatus());
     }
 }

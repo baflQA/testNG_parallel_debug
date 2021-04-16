@@ -1,6 +1,5 @@
 package testngparallel;
 
-import io.qameta.allure.Step;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.BeforeClass;
@@ -23,7 +22,7 @@ public class Class1 extends MasterTestClass {
         logger.info("BEFORE METHOD");
     }
 
-    @Step
+
     @Test(dataProviderClass = MasterProvider.class, dataProvider = "dp1master")
     public <T extends Object> void test1(Object object) {
         logger.info(object.toString());

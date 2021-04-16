@@ -42,7 +42,6 @@ public class MasterTestClass implements ITestListener, ISuiteListener {
 		MasterTestClass.logger.warn("MASTER CLASS On Test Failure");
 	}
 
-
 	@Override
 	public void onStart(ITestContext context) {
 		MasterTestClass.logger.warn("MASTER CLASS On start");

@@ -4,7 +4,6 @@ import org.testng.*;
 
 public class FailureDetector implements IConfigurationListener, IDataProviderListener {
 	public static final String FAILURE = "failure";
-	public static boolean asd = true;
 
 	@Override
 	public void onConfigurationFailure(ITestResult itr) {

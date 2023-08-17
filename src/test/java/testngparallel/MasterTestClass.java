@@ -7,12 +7,13 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Listeners;
+import testngparallel.listeners.DPListener;
 import testngparallel.listeners.FailureDetector;
 import testngparallel.listeners.TestListenerImpl;
 import testngparallel.listeners.TestReporter;
 
 import java.lang.invoke.MethodHandles;
-@Listeners({MasterTestClass.class, TestReporter.class, FailureDetector.class})
+@Listeners({MasterTestClass.class, TestReporter.class, FailureDetector.class, DPListener.class})
 public class MasterTestClass implements ITestListener, ISuiteListener {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 

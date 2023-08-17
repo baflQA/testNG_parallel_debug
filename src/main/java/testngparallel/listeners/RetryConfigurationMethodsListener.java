@@ -25,7 +25,6 @@ public class RetryConfigurationMethodsListener implements IConfigurable, IHookab
         }
     }
 
-}
     private static void sleep5s() {
         try {
             Thread.sleep(Duration.ofSeconds(5).toMillis());

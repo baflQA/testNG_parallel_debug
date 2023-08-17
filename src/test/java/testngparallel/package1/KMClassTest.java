@@ -1,6 +1,5 @@
 package testngparallel.package1;
 
-import java.lang.invoke.MethodHandles;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
@@ -10,7 +9,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import testngparallel.MasterTestClass;
 
-public class KMClass extends MasterTestClass {
+import java.lang.invoke.MethodHandles;
+
+public class KMClassTest extends MasterTestClass {
 
   private static final Logger logger = LoggerFactory
       .getLogger(MethodHandles.lookup().lookupClass());

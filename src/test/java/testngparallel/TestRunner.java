@@ -6,7 +6,7 @@ import org.testng.TestNG;
 import org.testng.annotations.Test;
 import testngparallel.listeners.TestReporter;
 import testngparallel.listeners.TestReporter.Keys;
-import testngparallel.package1.KMClass;
+import testngparallel.package1.KMClassTest;
 
 import java.util.Map;
 import java.util.Set;
@@ -16,7 +16,7 @@ public class TestRunner {
   @Test
   public void runTest() {
     TestNG testng = new TestNG();
-    testng.setTestClasses(new Class[]{KMClass.class});
+    testng.setTestClasses(new Class[]{KMClassTest.class});
     testng.setVerbose(2);
     testng.run();
     Map<Keys, Set<ITestResult>> data = TestReporter.getInstance().getData();

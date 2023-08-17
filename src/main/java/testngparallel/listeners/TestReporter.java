@@ -19,7 +19,7 @@ public class TestReporter implements IReporter {
 
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 	private static TestReporter INSTANCE;
-	private Map<Keys, Set<ITestResult>> data = new ConcurrentHashMap<>();
+	private final Map<Keys, Set<ITestResult>> data = new ConcurrentHashMap<>();
 
 	public TestReporter() {
 		setInstance(this);

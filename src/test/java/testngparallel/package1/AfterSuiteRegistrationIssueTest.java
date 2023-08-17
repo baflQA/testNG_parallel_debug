@@ -10,7 +10,7 @@ import testngparallel.providers.MasterProvider;
 
 import java.lang.invoke.MethodHandles;
 
-public class AfterSuiteRegistrationIssue extends AfterSuiteListenerTestClass {
+public class AfterSuiteRegistrationIssueTest extends AfterSuiteListenerTestClass {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
 	@BeforeClass
@@ -24,12 +24,12 @@ public class AfterSuiteRegistrationIssue extends AfterSuiteListenerTestClass {
 	}
 
 	@Test(dataProviderClass = MasterProvider.class, dataProvider = "dp1master")
-	public <T extends Object> void test1(Object object) {
+	public <T> void test1(Object object) {
 		logger.info(object.toString());
 	}
 
 	@Test(dataProviderClass = MasterProvider.class, dataProvider = "dp1master")
-	public <T extends Object> void test2(Object object) {
+	public <T> void test2(Object object) {
 		logger.info(object.toString());
 	}
 }

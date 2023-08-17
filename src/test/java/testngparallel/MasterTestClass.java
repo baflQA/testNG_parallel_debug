@@ -25,31 +25,31 @@ public class MasterTestClass implements ITestListener, ISuiteListener {
 
 	@BeforeClass(alwaysRun = true)
 	public void setUp() {
-		MasterTestClass.logger.warn("MASTER CLASS Before class");
+		logger.warn("MASTER CLASS Before class");
 	}
 
 	@BeforeMethod
 	public void navigate() {
-		MasterTestClass.logger.warn("MASTER CLASS Before method");
+		logger.warn("MASTER CLASS Before method");
 	}
 
 	@AfterClass(alwaysRun = true)
 	public void tearDown() {
-		MasterTestClass.logger.warn("MASTER CLASS After class");
+		logger.warn("MASTER CLASS After class");
 	}
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		MasterTestClass.logger.warn("MASTER CLASS On Test Failure");
+		logger.warn("MASTER CLASS On Test Failure");
 	}
 
 	@Override
 	public void onStart(ITestContext context) {
-		MasterTestClass.logger.warn("MASTER CLASS On start");
+		logger.warn("MASTER CLASS On start");
 	}
 
 	@Override
 	public void onFinish(ITestContext context) {
-		MasterTestClass.logger.warn("MASTER CLASS On finish");
+		logger.warn("MASTER CLASS On finish");
 	}
 }

@@ -10,7 +10,7 @@ import java.lang.invoke.MethodHandles;
 public class TestListenerImpl implements ITestListener {
 
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-	private static String ON_TEST_MSG = "TEST LISTENER - ON TEST";
+	private static final String ON_TEST_MSG = "TEST LISTENER - ON TEST";
 
 	@Override
 	public void onTestStart(ITestResult result) {

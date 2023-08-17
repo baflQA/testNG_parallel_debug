@@ -11,10 +11,10 @@ import testngparallel.listeners.RetryAnalyzer;
 import java.lang.invoke.MethodHandles;
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class RetryLoop {
+public class RetryLoopTest {
 	private static final Logger logger = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
-	private AtomicInteger atomicInt = new AtomicInteger(0);
-	Object existingObject = new Object();
+	private final AtomicInteger atomicInt = new AtomicInteger(0);
+	final Object existingObject = new Object();
 
 	@RetriesCount(3)
 	@Test(retryAnalyzer = RetryAnalyzer.class, dataProvider = "dpNewObject")

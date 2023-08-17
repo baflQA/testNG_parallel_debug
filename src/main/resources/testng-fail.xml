@@ -3,7 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2"  name="Exit code test">
         <classes>
-            <class name="testngparallel.jarexitcode.Fail"/>
+            <class name="testngparallel.jarexitcode.FailTest"/>
         </classes>
     </test>
 </suite>

@@ -12,14 +12,14 @@ public class RetryConfigurationMethodsListener implements IConfigurable, IHookab
         if (testResult.getThrowable() != null) {
             String className = testResult.getMethod().getTestClass().getName();
             String methodName = testResult.getMethod().getMethodName();
-            System.out.println(String.format("Configuration method '%s#%s' failed. Retrying...", className, methodName));
+            System.out.printf("Configuration method '%s#%s' failed. Retrying...%n", className, methodName);
             for (int i = 0; i < 3; i++) {
                 sleep5s();
                 callBack.runConfigurationMethod(testResult);
                 if (testResult.getThrowable() == null) {
                     break;
                 } else {
-                    System.out.println(String.format("Retry %d/%d of '%s#%s' method failed.", i + 1, 3, className, methodName));
+                    System.out.printf("Retry %d/%d of '%s#%s' method failed.%n", i + 1, 3, className, methodName);
                 }
             }
         }
